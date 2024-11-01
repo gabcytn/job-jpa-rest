@@ -9,9 +9,6 @@ public class TechStack {
 
     private String technology;
 
-    @ManyToOne
-    private Job job;
-
     public String getTechnology() {
         return technology;
     }
