@@ -1,20 +1,43 @@
 package com.gabcytn.springjparest.Model;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
 public class Job {
+    @Id
     private int id;
     private String title;
     private String description;
     private int experience;
-    private List<String> techStack;
 
-    public List<String> getTechStack() {
-        return techStack;
+    @ElementCollection
+    @CollectionTable(name = "tech_stack", joinColumns = @JoinColumn(name = "job_id"))
+    @Column(name = "technology")
+    private List<String> tech_stack;
+
+//    @OneToMany()
+//    @JoinColumn(name = "job_id")
+//    private List<TechStack> tech_stack;
+
+    public Job () {}
+
+//    public List<TechStack> getTech_stack() {
+//        System.out.println(tech_stack);
+//        return tech_stack;
+//    }
+//
+//    public void setTech_stack(List<TechStack> tech_stack) {
+//        this.tech_stack = tech_stack;
+//    }
+
+    public List<String> getTech_stack() {
+        return tech_stack;
     }
 
-    public void setTechStack(List<String> techStack) {
-        this.techStack = techStack;
+    public void setTech_stack(List<String> tech_stack) {
+        this.tech_stack = tech_stack;
     }
 
     public String getTitle() {
