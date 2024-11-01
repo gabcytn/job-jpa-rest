@@ -17,20 +17,7 @@ public class Job {
     @Column(name = "technology")
     private List<String> tech_stack;
 
-//    @OneToMany()
-//    @JoinColumn(name = "job_id")
-//    private List<TechStack> tech_stack;
-
     public Job () {}
-
-//    public List<TechStack> getTech_stack() {
-//        System.out.println(tech_stack);
-//        return tech_stack;
-//    }
-//
-//    public void setTech_stack(List<TechStack> tech_stack) {
-//        this.tech_stack = tech_stack;
-//    }
 
     public List<String> getTech_stack() {
         return tech_stack;
