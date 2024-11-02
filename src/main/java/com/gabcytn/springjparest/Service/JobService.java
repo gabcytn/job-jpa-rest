@@ -19,10 +19,14 @@ public class JobService {
     }
 
     public List<Job> getAllJobs() {
-        return jobRepository.findAll();
+        return jobRepository.findAllByOrderByIdAsc();
     }
 
     public Optional<Job> getJobById(int id) {
         return jobRepository.findById(id);
+    }
+
+    public void saveJob(Job job) {
+        jobRepository.save(job);
     }
 }
