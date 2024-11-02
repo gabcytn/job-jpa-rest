@@ -3,6 +3,7 @@ package com.gabcytn.springjparest.Controller;
 import com.gabcytn.springjparest.Model.Job;
 import com.gabcytn.springjparest.Service.JobService;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,12 @@ public class JobController {
     }
 
     @PostMapping("/job")
-    public Job addJob(@RequestBody Job job) {
-        return jobService.saveJob(job);
+    public ResponseEntity<Job> addJob (@RequestBody Job job) {
+        if (jobService.doesJobExist(job.getId())) {
+            return ResponseEntity.status(400).body(new Job());
+        }
+
+        Job savedJob = jobService.saveJob(job);
+        return ResponseEntity.status(201).body(savedJob);
     }
 }
