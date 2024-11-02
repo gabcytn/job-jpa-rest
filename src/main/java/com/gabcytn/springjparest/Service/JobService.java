@@ -1,7 +1,6 @@
 package com.gabcytn.springjparest.Service;
 
 import com.gabcytn.springjparest.Model.Job;
-import com.gabcytn.springjparest.Model.TechStack;
 import com.gabcytn.springjparest.Repository.JobRepository;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,11 @@ public class JobService {
         return jobRepository.findById(id);
     }
 
-    public void saveJob(Job job) {
-        jobRepository.save(job);
+    public Job saveJob(Job job) {
+        return jobRepository.save(job);
+    }
+
+    public boolean doesJobExist(int id) {
+        return jobRepository.existsById(id);
     }
 }
