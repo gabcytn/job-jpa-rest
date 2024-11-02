@@ -32,4 +32,8 @@ public class JobService {
     public boolean doesJobExist(int id) {
         return jobRepository.existsById(id);
     }
+
+    public void deleteJob (int id) {
+        jobRepository.deleteById(id);
+    }
 }
