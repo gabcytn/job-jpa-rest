@@ -1,7 +1,6 @@
 package com.gabcytn.springjparest.Service;
 
 import com.gabcytn.springjparest.Model.Job;
-import com.gabcytn.springjparest.Model.TechStack;
 import com.gabcytn.springjparest.Repository.JobRepository;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
