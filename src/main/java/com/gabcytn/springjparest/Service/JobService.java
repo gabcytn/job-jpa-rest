@@ -28,4 +28,8 @@ public class JobService {
     public Job saveJob(Job job) {
         return jobRepository.save(job);
     }
+
+    public boolean doesJobExist(int id) {
+        return jobRepository.existsById(id);
+    }
 }
