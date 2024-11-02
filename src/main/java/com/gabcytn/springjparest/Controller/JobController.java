@@ -38,4 +38,15 @@ public class JobController {
         Job savedJob = jobService.saveJob(job);
         return ResponseEntity.status(201).body(savedJob);
     }
+
+    @PutMapping("/job")
+    public Job updateJob (@RequestBody Job job) {
+        return jobService.saveJob(job);
+    }
+
+    @DeleteMapping("/job/{id}")
+    public ResponseEntity<Job> deleteJob (@PathVariable int id) {
+        jobService.deleteJob(id);
+        return ResponseEntity.status(204).body(null);
+    }
 }
